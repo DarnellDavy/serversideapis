@@ -26,3 +26,41 @@ function DisplayWeatherData(data) {
     };
     $("#History").html(cityStrings);
 }
+function KelvinToFahrenheit(degrees) {
+    return parseInt((degrees - 273.15) * 9 / 5 + 32);
+}
+
+function FetchWeatherData() {
+    var city = document.querySelector("#searchBox").value;
+    var apiURL = "https://api.openweathermap.org/data/2.5/onecall";
+    var city = document.querySelector("#searchBox").value;
+    var apiURL1 = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=d744ae3712d48098b8817bc0db636ae4";
+    fetch(apiURL1)
+        .then(function (weatherData) {
+            return weatherData.json()
+        })
+        .then(function (weatherData) {
+            console.log(weatherData);
+            var latitude = "?lat=" + weatherData.coord.lat;
+            var longitude = "&lon=" + weatherData.coord.lon;
+            $("#CurCityAndDate").text(weatherData.name + " " + DateAsMMDDYY(curDate));
+            return fetch(apiURL + latitude + longitude + "&exclude=minutely,hourly&appid=d744ae3712d48098b8817bc0db636ae4")
+                .then(function (response) {
+                    return response.json();
+                })
+                .then(function (response) {
+                    console.log(response);
+                    CurrentWeatherData(response);
+                    DisplayWeatherData(response);
+                })
+        })
+}
+
+function DateAsMMDDYY(date) {
+    var year = date.getFullYear();
+    var month = (1 + date.getMonth()).toString();
+    month = month.length > 1 ? month : '0' + month;
+    var day = date.getDate().toString();
+    day = day.length > 1 ? day : '0' + day;
+    return month + '/' + day + '/' + year;
+}
