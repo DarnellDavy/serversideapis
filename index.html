@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-    <title>Weather Dashboard</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-    <style>
-        ul {
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+        <title>Weather Dashboard</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+    </head>
+
+    <body>
+        <style>
+            ul {
             list-style: none;
             padding-left: 0;
-          }
+            }
     
-          .card-body {
+            .card-body {
             padding: 0.5rem !important;
-          }
-    </style>
-</head>
-
-<body>
-    <body>
-        <header class="py-5 text-center">
-          <h1 id="page">Weather Dashboard</h1>
-        </header>
-    
-      <div class="row">
-        <div class="col-3">
-          <ul class="nav flex-column">
-            <li class="nav-item p-2">
-              <h2>Search For a City</h2>
-            </li>
-            <li class="nav-item p-2">
-            <input id="searchBox" type="text" placeholder="Enter a city here!">
-            </li>
-            <li class="nav-item p-2">
-            <button id="searchButton" class="btn btn-info" onclick="FetchWeatherData()">Search</button>
-            </li>
-          </ul>
-          <ul id="History"></ul>
-        </div>
-    
-</body>
+            }
+        </style>
+        <body>
+            <header class="py-5 text-center">
+            <h1 id="page">Weather Dashboard</h1>
+            </header>
+        
+            <div class="row">
+                <div class="col-3">
+                <ul class="nav flex-column">
+                    <li class="nav-item p-2">
+                    <h2>Search For a City</h2>
+                    </li>
+                    <li class="nav-item p-2">
+                    <input id="searchBox" type="text" placeholder="Enter a city here!">
+                    </li>
+                    <li class="nav-item p-2">
+                    <button id="searchButton" class="btn btn-info" onclick="FetchWeatherData()">Search</button>
+                    </li>
+                </ul>
+                <ul id="History"></ul>
+                </div>
+            
+        </body>
+    </body>
 </html>
